@@ -114,3 +114,12 @@ body {
   gap: 10px;
   margin-bottom: 14px;
 }
+.pokeball-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: conic-gradient(white 180deg, red 180deg);
+  border: 3px solid #222;
+  position: relative;
+  flex-shrink: 0;
+  animation: spinIdle 8s linear infinite;
+}
