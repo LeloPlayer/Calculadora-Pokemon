@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokécalc — Calculadora Pokémon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating background pokebolas -->
+  <div class="bg-balls" id="bgBalls"></div>
+
+  <!-- Mensagem de batalha popup -->
+  <div class="battle-msg" id="battleMsg"></div>
+
+  <!-- Device -->
+  <div class="device">
+
+    <!-- Camera + LED indicadores -->
+    <div class="camera-row">
+      <div class="camera"></div>
+      <div class="led red"></div>
+      <div class="led yellow"></div>
+      <div class="led green"></div>
+    </div>
+
+    <!-- Barra de Titulo -->
+    <div class="top-bar">
+      <div class="pokeball-icon"></div>
+      <div class="device-title">
+        POKÉCALC
+        <span>★ KANTO EDITION ★</span>
+      </div>
+    </div>
+
+    <!-- Screen -->
+    <div class="screen-wrap">
+      <div class="screen">
+        <div class="screen-history"    id="history"></div>
+        <div class="screen-expression" id="expression"></div>
+        <div class="screen-display"    id="display">0</div>
+        <div class="pokemon-hint"      id="hint">USE ▶ CALC ◀ SYSTEM</div>
+      </div>
+    </div>
+
+    <!-- D-Pad + A/B buttons -->
+    <div class="dpad-section">
+      <div class="dpad">
+        <div class="dpad-h"></div>
+        <div class="dpad-v"></div>
+        <div class="dpad-center"></div>
+        <div class="dpad-arrow dpad-up">▲</div>
+        <div class="dpad-arrow dpad-down">▼</div>
+        <div class="dpad-arrow dpad-left">◄</div>
+        <div class="dpad-arrow dpad-right">►</div>
+      </div>
+      <div class="ab-buttons">
+        <div></div>
+        <button class="btn-ab btn-a" onclick="calc.action('A')">A</button>
+        <button class="btn-ab btn-b" onclick="calc.action('B')">B</button>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- Start / Select -->
+    <div class="start-select">
+      <button class="btn-ss" onclick="calc.action('SELECT')">SELECT</button>
+      <button class="btn-ss" onclick="calc.action('START')">START</button>
+    </div>
+
+    <!-- Calculator butoes -->
+    <div class="btn-grid">
+
+      <!-- Row 1: AC ± % ÷ -->
+      <button class="btn btn-clear" onclick="calc.input('AC')">
+        <span class="btn-inner">AC</span>
+      </button>
+      <button class="btn btn-op" onclick="calc.input('+/-')">
+        <span class="btn-inner">±</span>
+      </button>
+      <button class="btn btn-op" onclick="calc.input('%')">
+        <span class="btn-inner">%</span>
+      </button>
+      <button class="btn btn-op" onclick="calc.input('÷')">
+        <span class="btn-inner">÷</span>
+      </button>
+
+      <!-- Row 2: 7 8 9 × -->
+      <button class="btn btn-num" onclick="calc.input('7')">
+        <span class="btn-inner">7</span>
+      </button>
+      <button class="btn btn-num" onclick="calc.input('8')">
+        <span class="btn-inner">8</span>
+      </button>
+      <button class="btn btn-num" onclick="calc.input('9')">
+        <span class="btn-inner">9</span>
+      </button>
+      <button class="btn btn-op" onclick="calc.input('×')">
+        <span class="btn-inner">×</span>
+      </button>
+
+      <!-- Row 3: 4 5 6 − -->
+      <button class="btn btn-num" onclick="calc.input('4')">
+        <span class="btn-inner">4</span>
+      </button>
+      <button class="btn btn-num" onclick="calc.input('5')">
+        <span class="btn-inner">5</span>
+      </button>
+      <button class="btn btn-num" onclick="calc.input('6')">
+        <span class="btn-inner">6</span>
+      </button>
+      <button class="btn btn-op" onclick="calc.input('−')">
+        <span class="btn-inner">−</span>
+      </button>
+
+      <!-- Row 4: 1 2 3 + -->
+      <button class="btn btn-num" onclick="calc.input('1')">
+        <span class="btn-inner">1</span>
+      </button>
+      <button class="btn btn-num" onclick="calc.input('2')">
+        <span class="btn-inner">2</span>
+      </button>
+      <button class="btn btn-num" onclick="calc.input('3')">
+        <span class="btn-inner">3</span>
+      </button>
+      <button class="btn btn-op" onclick="calc.input('+')">
+        <span class="btn-inner">+</span>
+      </button>
+
+      <!-- Row 5: 0 . = -->
+      <button class="btn btn-num btn-zero" onclick="calc.input('0')">
+        <span class="btn-inner">0</span>
+      </button>
+      <button class="btn btn-num" onclick="calc.input('.')">
+        <span class="btn-inner">.</span>
+      </button>
+      <button class="btn btn-eq" onclick="calc.input('=')">
+        <span class="btn-inner">= OK!</span>
+      </button>
+
+    </div>
+  </div><!-- /.device -->
+
+  <script src="script.js"></script>
+</body>
+</html>
