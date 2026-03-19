@@ -143,3 +143,8 @@ body {
   letter-spacing: 1px;
   line-height: 1.4;
 }
+.device-title span {
+  display: block;
+  font-size: 5px;
+  color: rgba(255,203,5,0.6);
+}
