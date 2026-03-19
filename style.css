@@ -40,3 +40,30 @@ body {
   font-family: 'Press Start 2P', monospace;
   padding: 20px;
 }
+
+/* ===== FLOATING POKÉBALLS BG ===== */
+.bg-balls {
+  position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+}
+.bg-ball {
+  position: absolute;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.06);
+  animation: floatBall linear infinite;
+  opacity: 0;
+}
+.bg-ball::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-50%);
+}
+@keyframes floatBall {
+  0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+}
