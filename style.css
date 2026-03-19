@@ -67,3 +67,42 @@ body {
   95%  { opacity: 1; }
   100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
 }
+
+/* ===== DEVICE WRAPPER ===== */
+.device {
+  position: relative; z-index: 1;
+  width: 340px;
+  background: var(--red);
+  border-radius: 12px 12px 60px 12px;
+  padding: 20px 20px 30px;
+  box-shadow:
+    0 0 0 4px var(--red-dark),
+    0 20px 60px rgba(0,0,0,0.7),
+    inset 0 2px 0 rgba(255,255,255,0.2),
+    inset 0 -4px 0 rgba(0,0,0,0.3);
+  animation: deviceIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes deviceIn {
+  from { transform: scale(0.7) translateY(40px); opacity: 0; }
+  to   { transform: scale(1)   translateY(0);    opacity: 1; }
+}
+
+/* Hinge line */
+.device::before {
+  content: '';
+  position: absolute;
+  top: 90px; left: 0; right: 0;
+  height: 6px;
+  background: var(--red-dark);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Bottom curve cutout */
+.device::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 60px; height: 60px;
+  background: var(--body-bg);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
