@@ -1,0 +1,42 @@
+/* ===========================
+   POKÉCALC — KANTO EDITION
+   style.css
+=========================== */
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red:       #CC0000;
+  --red-dark:  #8B0000;
+  --red-light: #FF3333;
+  --yellow:    #FFCB05;
+  --yellow-dk: #C8A000;
+  --blue:      #3B4CCA;
+  --blue-lt:   #6B7FFF;
+  --cream:     #F5F0DC;
+  --cream-dk:  #D4C98A;
+  --screen-bg: #9BBC0F;
+  --screen-dk: #306230;
+  --screen-lt: #8BAC0F;
+  --screen-bk: #0F380F;
+  --shadow:    rgba(0,0,0,0.55);
+  --btn-op:    #3B4CCA;
+  --btn-eq:    #CC0000;
+  --btn-num:   #2A2A2A;
+  --body-bg:   #1a1a2e;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--body-bg);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(59,76,202,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(204,0,0,0.12) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23ffffff08'/%3E%3C/svg%3E");
+  font-family: 'Press Start 2P', monospace;
+  padding: 20px;
+}
