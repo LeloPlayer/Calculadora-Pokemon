@@ -210,3 +210,31 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
   pointer-events: none;
 }
+.screen-history {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: var(--screen-dk);
+  min-height: 20px;
+  text-align: right;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+.screen-expression {
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+  color: var(--screen-dk);
+  text-align: right;
+  opacity: 0.7;
+  min-height: 18px;
+  word-break: break-all;
+}
+.screen-display {
+  font-family: 'VT323', monospace;
+  font-size: 40px;
+  color: var(--screen-bk);
+  text-align: right;
+  line-height: 1;
+  word-break: break-all;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  transition: transform 0.1s;
+}
