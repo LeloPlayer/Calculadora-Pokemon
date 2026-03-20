@@ -295,3 +295,65 @@ body {
 .btn.pressed .btn-inner {
   transform: translateY(0px);
 }
+
+/* Number buttons */
+.btn-num {
+  background: #111;
+  box-shadow: 0 4px 0 #000;
+}
+.btn-num .btn-inner {
+  background: linear-gradient(180deg, #3a3a3a, #1e1e1e);
+  color: var(--cream);
+}
+.btn-num:hover .btn-inner {
+  background: linear-gradient(180deg, #4a4a4a, #2e2e2e);
+}
+
+/* Operator buttons */
+.btn-op {
+  background: #1a2566;
+  box-shadow: 0 4px 0 #0a0f3a;
+}
+.btn-op .btn-inner {
+  background: linear-gradient(180deg, var(--blue-lt), var(--blue));
+  color: var(--yellow);
+  font-size: 13px;
+}
+.btn-op:hover .btn-inner {
+  background: linear-gradient(180deg, #8090ff, #4a5fdd);
+}
+
+/* Equal button */
+.btn-eq {
+  background: #800000;
+  box-shadow: 0 4px 0 #500000;
+  grid-column: span 2;
+}
+.btn-eq .btn-inner {
+  background: linear-gradient(180deg, var(--red-light), var(--red));
+  color: var(--yellow);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.btn-eq:hover .btn-inner {
+  background: linear-gradient(180deg, #ff5555, #dd1111);
+}
+
+/* Clear button */
+.btn-clear {
+  background: #665500;
+  box-shadow: 0 4px 0 #332200;
+}
+.btn-clear .btn-inner {
+  background: linear-gradient(180deg, var(--yellow), var(--yellow-dk));
+  color: #1a1a1a;
+  font-size: 8px;
+}
+.btn-clear:hover .btn-inner {
+  background: linear-gradient(180deg, #ffe040, #d4a800);
+}
+
+/* Zero wide */
+.btn-zero {
+  grid-column: span 2;
+}
