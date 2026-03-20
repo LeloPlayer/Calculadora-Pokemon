@@ -238,3 +238,19 @@ body {
   text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
   transition: transform 0.1s;
 }
+.screen-display.pop {
+  animation: pop 0.15s ease-out;
+}
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+.pokemon-hint {
+  font-size: 7px;
+  color: var(--screen-dk);
+  text-align: center;
+  opacity: 0.6;
+  letter-spacing: 1px;
+  font-family: 'Press Start 2P', monospace;
+}
