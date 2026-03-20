@@ -254,3 +254,44 @@ body {
   letter-spacing: 1px;
   font-family: 'Press Start 2P', monospace;
 }
+
+/* ===== BUTTONS GRID ===== */
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  border: none;
+  border-radius: 6px;
+  padding: 0;
+  height: 48px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  transition: transform 0.08s, filter 0.08s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 3D button effect */
+.btn-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-3px);
+  transition: transform 0.08s;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+}
+.btn:active .btn-inner,
+.btn.pressed .btn-inner {
+  transform: translateY(0px);
+}
