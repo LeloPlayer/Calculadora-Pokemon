@@ -357,3 +357,66 @@ body {
 .btn-zero {
   grid-column: span 2;
 }
+
+/* ===== D-PAD AREA ===== */
+.dpad-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+.dpad {
+  position: relative;
+  width: 72px; height: 72px;
+}
+.dpad-h, .dpad-v {
+  position: absolute;
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+.dpad-h { width: 72px; height: 24px; top: 50%; transform: translateY(-50%); }
+.dpad-v { height: 72px; width: 24px; left: 50%; transform: translateX(-50%); }
+.dpad-center {
+  position: absolute; inset: 24px;
+  background: #222;
+  border-radius: 2px;
+  z-index: 1;
+}
+.dpad-arrow {
+  position: absolute;
+  width: 24px; height: 24px;
+  background: #2a2a2a;
+  display: flex; align-items: center; justify-content: center;
+  color: #555; font-size: 10px;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  z-index: 2;
+  border-radius: 2px;
+}
+.dpad-arrow:hover { background: #3a3a3a; color: #888; }
+.dpad-up    { top: 0;    left: 24px; }
+.dpad-down  { bottom: 0; left: 24px; }
+.dpad-left  { left: 0;   top: 24px; }
+.dpad-right { right: 0;  top: 24px; }
+
+.ab-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.btn-ab {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  font-weight: bold;
+  transition: transform 0.1s, filter 0.1s;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+  color: white;
+}
+.btn-ab:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.4); }
+.btn-a { background: radial-gradient(circle at 35% 35%, #ff6060, var(--red)); }
+.btn-b { background: radial-gradient(circle at 35% 35%, #6080ff, var(--blue)); }
