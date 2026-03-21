@@ -420,3 +420,22 @@ body {
 .btn-ab:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.4); }
 .btn-a { background: radial-gradient(circle at 35% 35%, #ff6060, var(--red)); }
 .btn-b { background: radial-gradient(circle at 35% 35%, #6080ff, var(--blue)); }
+
+/* ===== START / SELECT ===== */
+.start-select {
+  display: flex; gap: 12px; justify-content: center;
+  margin-top: 8px; margin-bottom: 4px;
+}
+.btn-ss {
+  background: #8B0000;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 14px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 5px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 0 #500000, inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: transform 0.1s;
+}
