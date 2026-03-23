@@ -19,3 +19,29 @@ Botão START mostra dica do Professor Oak
 Pokébola no topo gira como animação idle
 
 
+
+Englesh vers..
+
+🧮 Pokécalc — A Pokémon-themed calculator built with pure HTML, CSS, and JS. Game Boy style, battle messages, and hidden Easter eggs!
+
+Welcome to another project... This is Pokécalc!
+A calculator inspired by the Pokémon universe!!
+A really fun project that helped me improve my HTML, CSS, and JS skills 
+
+Calculator Features
+
+Operations: +, −, ×, ÷, %, ±
+On-screen operation history
+AC button to clear
+Keyboard support (Enter key, numbers, operators)
+
+Pokémon Easter Eggs 🥚
+
+Battle-style messages (e.g., “It's super effective!”, “Pikachu used Calculation!”)
+Special numbers detected: 42, 151, 404, 1337, 721, 807 — trigger exclusive messages
+START button displays a tip from Professor Oak
+Poké Ball at the top spins as an idle animation
+
+Translated with DeepL.com (free version)
+
+
