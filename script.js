@@ -88,4 +88,17 @@ function initHints() {
   }, 3000);
 }
 
+// ===== CALCULATOR LOGIC =====
+const calc = (() => {
+  let current    = '0';
+  let prev       = '';
+  let operator   = '';
+  let shouldReset = false;
+  let history    = '';
+  let expression = '';
 
+  const displayEl = document.getElementById('display');
+  const histEl    = document.getElementById('history');
+  const exprEl    = document.getElementById('expression');
+
+  
