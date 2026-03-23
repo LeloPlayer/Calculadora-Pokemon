@@ -72,3 +72,20 @@ function showMsg(text) {
   msgTimeout = setTimeout(() => el.classList.remove('show'), 2200);
 }
 
+// ===== ROTATING SCREEN HINTS =====
+function initHints() {
+  const hintEl = document.getElementById('hint');
+  const hints = [
+    'USE ▶ CALC ◀ SYSTEM',
+    'KANTO CALC v1.0',
+    'HP: ∞  PP: ∞',
+    '★ GOTTA CALCULATE ★',
+  ];
+  let hintIdx = 0;
+  setInterval(() => {
+    hintIdx = (hintIdx + 1) % hints.length;
+    hintEl.textContent = hints[hintIdx];
+  }, 3000);
+}
+
+
