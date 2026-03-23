@@ -439,3 +439,42 @@ body {
   box-shadow: 0 3px 0 #500000, inset 0 1px 0 rgba(255,255,255,0.1);
   transition: transform 0.1s;
 }
+.btn-ss:active { transform: translateY(2px); box-shadow: 0 1px 0 #500000; }
+
+/* ===== BATTLE MESSAGE ===== */
+.battle-msg {
+  position: fixed;
+  top: 20px; left: 50%; transform: translateX(-50%);
+  background: var(--screen-bg);
+  border: 4px solid var(--screen-bk);
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--screen-bk);
+  text-align: center;
+  box-shadow: 4px 4px 0 var(--screen-dk);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  max-width: 280px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+.battle-msg.show { opacity: 1; }
+
+/* ===== ERROR SHAKE ===== */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25%     { transform: translateX(-6px); }
+  75%     { transform: translateX(6px); }
+}
+.shake { animation: shake 0.3s ease-in-out; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 380px) {
+  .device { width: 300px; }
+  .btn { height: 42px; font-size: 9px; }
+}
+
