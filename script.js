@@ -101,4 +101,36 @@ const calc = (() => {
   const histEl    = document.getElementById('history');
   const exprEl    = document.getElementById('expression');
 
+// --- Helpers ---
+  function updateDisplay(val) {
+    displayEl.textContent = val;
+    displayEl.classList.remove('pop');
+    void displayEl.offsetWidth; // forcando a animaçao resetar.
+    displayEl.classList.add('pop');
+  }
+
+  function fmt(n) {
+    if (isNaN(n) || !isFinite(n)) return 'ERROR';
+    const s = parseFloat(n.toPrecision(10)).toString();
+    if (s.length > 10) return parseFloat(n.toFixed(4)).toString();
+    return s;
+  }
+
+  function compute(a, op, b) {
+    a = parseFloat(a);
+    b = parseFloat(b);
+    switch (op) {
+      case '+': return a + b;
+      case '−': return a - b;
+      case '×': return a * b;
+      case '÷': return b === 0 ? null : a / b;
+    }
+  }
+
+  function shake() {
+    displayEl.classList.add('shake');
+    setTimeout(() => displayEl.classList.remove('shake'), 350);
+  }
+
+
   
