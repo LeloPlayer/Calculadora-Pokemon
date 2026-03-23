@@ -132,5 +132,19 @@ const calc = (() => {
     setTimeout(() => displayEl.classList.remove('shake'), 350);
   }
 
+// --- Main input handler ---
+  function input(key) {
+
+    // AC — clear all
+    if (key === 'AC') {
+      current = '0'; prev = ''; operator = '';
+      shouldReset = false; history = ''; expression = '';
+      updateDisplay('0');
+      histEl.textContent = '';
+      exprEl.textContent = '';
+      showMsg(getRandom(messages.clear));
+      return;
+    }
+
 
   
