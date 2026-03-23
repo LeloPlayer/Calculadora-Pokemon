@@ -54,3 +54,21 @@ const messages = {
     "Você encontrou\num Pokémon raro!",
   ],
 };
+
+// Numeros com mensagens de easter eggs
+const specialNumbers = [42, 151, 404, 721, 807, 898, 1337];
+
+function getRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// ===== BATTLE MESSAGE POPUP =====
+let msgTimeout;
+function showMsg(text) {
+  const el = document.getElementById('battleMsg');
+  el.textContent = text;
+  el.classList.add('show');
+  clearTimeout(msgTimeout);
+  msgTimeout = setTimeout(() => el.classList.remove('show'), 2200);
+}
+
