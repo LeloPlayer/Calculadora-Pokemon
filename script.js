@@ -146,5 +146,25 @@ const calc = (() => {
       return;
     }
 
+    // Toggle sign
+    if (key === '+/-') {
+      if (current !== '0') {
+        current = String(parseFloat(current) * -1);
+        updateDisplay(current);
+      }
+      return;
+    }
+
+    // Percentage
+    if (key === '%') {
+      current = String(parseFloat(current) / 100);
+      updateDisplay(current);
+      return;
+    }
+
+    
+
+
+
 
   
