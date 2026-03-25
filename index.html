@@ -16,37 +16,37 @@
   <div class="battle-msg" id="battleMsg"></div>
 
   <!-- Device -->
-  <div class="device">
+  <main class="device">
 
     <!-- Camera + LED indicadores -->
-    <div class="camera-row">
+    <header class="camera-row">
       <div class="camera"></div>
       <div class="led red"></div>
       <div class="led yellow"></div>
       <div class="led green"></div>
-    </div>
+    </header>
 
     <!-- Barra de Titulo -->
-    <div class="top-bar">
+    <header class="top-bar">
       <div class="pokeball-icon"></div>
       <div class="device-title">
         POKÉCALC
         <span>★ KANTO EDITION ★</span>
       </div>
-    </div>
+    </header>
 
     <!-- Screen -->
-    <div class="screen-wrap">
+    <section class="screen-wrap">
       <div class="screen">
         <div class="screen-history"    id="history"></div>
         <div class="screen-expression" id="expression"></div>
         <div class="screen-display"    id="display">0</div>
         <div class="pokemon-hint"      id="hint">USE ▶ CALC ◀ SYSTEM</div>
       </div>
-    </div>
+    </section>
 
     <!-- D-Pad + A/B buttons -->
-    <div class="dpad-section">
+    <section class="dpad-section">
       <div class="dpad">
         <div class="dpad-h"></div>
         <div class="dpad-v"></div>
@@ -62,16 +62,16 @@
         <button class="btn-ab btn-b" onclick="calc.action('B')">B</button>
         <div></div>
       </div>
-    </div>
+    </section>
 
     <!-- Start / Select -->
-    <div class="start-select">
+    <section class="start-select">
       <button class="btn-ss" onclick="calc.action('SELECT')">SELECT</button>
       <button class="btn-ss" onclick="calc.action('START')">START</button>
-    </div>
+    </section>
 
     <!-- Calculator butoes -->
-    <div class="btn-grid">
+    <section class="btn-grid">
 
       <!-- Row 1: AC ± % ÷ -->
       <button class="btn btn-clear" onclick="calc.input('AC')">
@@ -140,8 +140,8 @@
         <span class="btn-inner">= OK!</span>
       </button>
 
-    </div>
-  </div><!-- /.device -->
+    </section>
+  </main><!-- /.device -->
 
   <script src="script.js"></script>
 </body>
