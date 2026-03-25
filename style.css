@@ -4,29 +4,40 @@
 =========================== */
 
 /* ===== RESET & BASE ===== */
+/* Reset universal para todos os elementos, incluindo pseudo-elementos ::before e ::after */
+/* box-sizing: border-box faz com que padding e border sejam incluídos na largura/altura total */
+/* margin: 0 e padding: 0 removem espaçamentos padrão do navegador */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* :root define variáveis CSS customizadas globais */
+/* Essas variáveis armazenam cores e valores reutilizáveis para consistência */
 :root {
-  --red:       #CC0000;
-  --red-dark:  #8B0000;
-  --red-light: #FF3333;
-  --yellow:    #FFCB05;
-  --yellow-dk: #C8A000;
-  --blue:      #3B4CCA;
-  --blue-lt:   #6B7FFF;
-  --cream:     #F5F0DC;
-  --cream-dk:  #D4C98A;
-  --screen-bg: #9BBC0F;
-  --screen-dk: #306230;
-  --screen-lt: #8BAC0F;
-  --screen-bk: #0F380F;
-  --shadow:    rgba(0,0,0,0.55);
-  --btn-op:    #3B4CCA;
-  --btn-eq:    #CC0000;
-  --btn-num:   #2A2A2A;
-  --body-bg:   #1a1a2e;
+  --red:       #CC0000; /* Vermelho principal */
+  --red-dark:  #8B0000; /* Vermelho escuro para sombras */
+  --red-light: #FF3333; /* Vermelho claro para destaques */
+  --yellow:    #FFCB05; /* Amarelo Pokémon */
+  --yellow-dk: #C8A000; /* Amarelo escuro */
+  --blue:      #3B4CCA; /* Azul principal */
+  --blue-lt:   #6B7FFF; /* Azul claro */
+  --cream:     #F5F0DC; /* Creme para texto */
+  --cream-dk:  #D4C98A; /* Creme escuro */
+  --screen-bg: #9BBC0F; /* Fundo da tela Game Boy */
+  --screen-dk: #306230; /* Verde escuro da tela */
+  --screen-lt: #8BAC0F; /* Verde claro da tela */
+  --screen-bk: #0F380F; /* Preto da tela */
+  --shadow:    rgba(0,0,0,0.55); /* Sombra semi-transparente */
+  --btn-op:    #3B4CCA; /* Cor para botões de operação */
+  --btn-eq:    #CC0000; /* Cor para botão de igual */
+  --btn-num:   #2A2A2A; /* Cor para botões numéricos */
+  --body-bg:   #1a1a2e; /* Fundo do corpo */
 }
 
+/* Estilos para o corpo da página */
+/* min-height: 100vh garante altura mínima de 100% da viewport */
+/* display: flex com align-items e justify-content centralizam o conteúdo */
+/* background: gradientes radiais para efeito visual, mais imagem SVG para pontos */
+/* font-family: fonte retrô do Google Fonts */
+/* padding: espaçamento interno */
 body {
   min-height: 100vh;
   display: flex;
@@ -42,9 +53,21 @@ body {
 }
 
 /* ===== FLOATING POKÉBALLS BG ===== */
+/* Container para bolas flutuantes de fundo */
+/* position: fixed; inset: 0; cobre toda a tela */
+/* overflow: hidden; impede que bolas saiam da área */
+/* pointer-events: none; não interfere com cliques */
+/* z-index: 0; atrás de outros elementos */
 .bg-balls {
   position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
 }
+/* Estilo para cada bola individual */
+/* position: absolute; posicionamento livre */
+/* width/height: tamanho da bola */
+/* border-radius: 50%; forma circular */
+/* border: borda sutil */
+/* animation: animação de flutuação infinita */
+/* opacity: 0; começa invisível */
 .bg-ball {
   position: absolute;
   width: 60px; height: 60px;
@@ -53,6 +76,13 @@ body {
   animation: floatBall linear infinite;
   opacity: 0;
 }
+/* Pseudo-elemento ::after para linha central da Pokébola */
+/* content: ''; cria elemento vazio */
+/* position: absolute; posicionamento dentro da bola */
+/* top: 50%; left/right: 0; linha horizontal no centro */
+/* height: 3px; espessura da linha */
+/* background: cor da linha */
+/* transform: translateY(-50%); centraliza verticalmente */
 .bg-ball::after {
   content: '';
   position: absolute;
@@ -61,6 +91,12 @@ body {
   background: rgba(255,255,255,0.06);
   transform: translateY(-50%);
 }
+/* Animação de flutuação das bolas */
+/* @keyframes define quadros da animação */
+/* 0%: começa abaixo da tela, rotação 0, opacidade 0 */
+/* 5%: aparece */
+/* 95%: permanece visível */
+/* 100%: sai acima da tela, rotação completa, opacidade 0 */
 @keyframes floatBall {
   0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
   5%   { opacity: 1; }
@@ -69,6 +105,16 @@ body {
 }
 
 /* ===== DEVICE WRAPPER ===== */
+/* ===== DEVICE WRAPPER ===== */
+/* Estilo para o container principal da calculadora */
+/* position: relative; para posicionamento de filhos */
+/* z-index: 1; acima do fundo */
+/* width: largura fixa */
+/* background: cor vermelha */
+/* border-radius: cantos arredondados, inferior direito mais curvo */
+/* padding: espaçamento interno */
+/* box-shadow: múltiplas sombras para efeito 3D */
+/* animation: entrada animada */
 .device {
   position: relative; z-index: 1;
   width: 340px;
@@ -82,12 +128,23 @@ body {
     inset 0 -4px 0 rgba(0,0,0,0.3);
   animation: deviceIn 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
 }
+/* Animação de entrada do dispositivo */
+/* from: começa pequeno e translúcido */
+/* to: tamanho normal e opaco */
 @keyframes deviceIn {
   from { transform: scale(0.7) translateY(40px); opacity: 0; }
   to   { transform: scale(1)   translateY(0);    opacity: 1; }
 }
 
-/* Hinge line */
+/* Hinge line - linha de dobradiça */
+/* Pseudo-elemento ::before para linha horizontal */
+/* content: ''; cria elemento */
+/* position: absolute; posicionamento relativo ao .device */
+/* top: 90px; posição vertical */
+/* left/right: 0; largura total */
+/* height: 6px; espessura */
+/* background: cor escura */
+/* box-shadow: brilho sutil */
 .device::before {
   content: '';
   position: absolute;
@@ -97,7 +154,14 @@ body {
   box-shadow: 0 1px 0 rgba(255,255,255,0.1);
 }
 
-/* Bottom curve cutout */
+/* Bottom curve cutout - recorte curvo inferior */
+/* Pseudo-elemento ::after para recorte */
+/* content: ''; */
+/* position: absolute; */
+/* bottom/right: 0; canto inferior direito */
+/* width/height: 60px; tamanho do recorte */
+/* background: cor do fundo do body */
+/* clip-path: polygon para forma triangular */
 .device::after {
   content: '';
   position: absolute;
@@ -108,12 +172,25 @@ body {
 }
 
 /* ===== TOP BAR ===== */
+/* Barra superior com ícone e título */
+/* display: flex; layout flexível */
+/* align-items: center; alinha verticalmente */
+/* gap: 10px; espaço entre itens */
+/* margin-bottom: 14px; margem inferior */
 .top-bar {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 14px;
 }
+/* Ícone da Pokébola */
+/* width/height: 32px; tamanho */
+/* border-radius: 50%; circular */
+/* background: gradiente cônico para efeito de meia-bola */
+/* border: borda preta */
+/* position: relative; para pseudo-elemento */
+/* flex-shrink: 0; não encolhe */
+/* animation: rotação ociosa */
 .pokeball-icon {
   width: 32px; height: 32px;
   border-radius: 50%;
@@ -123,11 +200,21 @@ body {
   flex-shrink: 0;
   animation: spinIdle 8s linear infinite;
 }
+/* Animação de rotação ociosa da Pokébola */
+/* 0%,80%,100%: rotação 0 */
+/* 85%: rotação 180deg */
+/* 95%: rotação 160deg para efeito de "idle" */
 @keyframes spinIdle {
   0%,80%,100% { transform: rotate(0deg); }
   85%          { transform: rotate(180deg); }
   95%          { transform: rotate(160deg); }
 }
+/* Centro branco da Pokébola */
+/* Pseudo-elemento ::after */
+/* inset: 30%; posiciona no centro */
+/* background: white */
+/* border-radius: 50%; circular */
+/* border: borda preta */
 .pokeball-icon::after {
   content: '';
   position: absolute;
@@ -136,6 +223,12 @@ body {
   border-radius: 50%;
   border: 2px solid #222;
 }
+/* Título do dispositivo */
+/* font-size: 8px; pequeno */
+/* color: amarelo */
+/* text-shadow: sombra vermelha */
+/* letter-spacing: 1px; espaçamento entre letras */
+/* line-height: 1.4; altura da linha */
 .device-title {
   font-size: 8px;
   color: var(--yellow);
@@ -143,6 +236,10 @@ body {
   letter-spacing: 1px;
   line-height: 1.4;
 }
+/* Parte secundária do título */
+/* display: block; quebra linha */
+/* font-size: 5px; ainda menor */
+/* color: amarelo semi-transparente */
 .device-title span {
   display: block;
   font-size: 5px;
@@ -150,10 +247,21 @@ body {
 }
 
 /* ===== CAMERA + LED ===== */
+/* Linha da câmera e LEDs */
+/* display: flex; layout horizontal */
+/* align-items: center; alinha verticalmente */
+/* gap: 6px; espaço entre itens */
+/* margin-bottom: 12px; margem inferior */
 .camera-row {
   display: flex; align-items: center; gap: 6px;
   margin-bottom: 12px;
 }
+/* Câmera */
+/* width/height: 14px; tamanho pequeno */
+/* border-radius: 50%; circular */
+/* background: gradiente radial para efeito de lente */
+/* border: borda preta */
+/* box-shadow: brilho azul */
 .camera {
   width: 14px; height: 14px;
   border-radius: 50%;
@@ -161,13 +269,36 @@ body {
   border: 2px solid #111;
   box-shadow: 0 0 6px rgba(60,60,255,0.5);
 }
+/* LEDs indicadores */
+/* width/height: 8px; pequenos */
+/* border-radius: 50%; circulares */
 .led { width: 8px; height: 8px; border-radius: 50%; }
+/* LED vermelho */
+/* background: vermelho claro */
+/* box-shadow: brilho vermelho */
+/* animation: piscar a cada 2s */
 .led.red    { background: #ff4444; box-shadow: 0 0 6px #ff0000; animation: blink 2s ease-in-out infinite; }
+/* LED amarelo */
+/* background: amarelo variável */
+/* box-shadow: brilho amarelo */
 .led.yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+/* LED verde */
+/* background: verde claro */
+/* box-shadow: brilho verde */
 .led.green  { background: #44ff44; box-shadow: 0 0 6px #00ff00; }
+/* Animação de piscar */
+/* 0%,100%: opacidade 1 */
+/* 50%: opacidade 0.3 */
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
 /* ===== SCREEN ===== */
+/* Wrapper da tela */
+/* background: cinza escuro */
+/* border-radius: 8px; cantos arredondados */
+/* padding: 6px; borda interna */
+/* margin-bottom: 16px; margem inferior */
+/* box-shadow: sombras para efeito encaixado */
+/* border: borda preta */
 .screen-wrap {
   background: #1a1a1a;
   border-radius: 8px;
@@ -178,6 +309,16 @@ body {
     0 2px 0 rgba(255,255,255,0.1);
   border: 3px solid #111;
 }
+/* Tela principal */
+/* background: verde Game Boy */
+/* border-radius: 4px; */
+/* padding: 10px 12px 8px; */
+/* min-height: 90px; altura mínima */
+/* display: flex; layout flexível */
+/* flex-direction: column; vertical */
+/* justify-content: space-between; espaço entre itens */
+/* position: relative; para pseudo-elementos */
+/* overflow: hidden; esconde overflow */
 .screen {
   background: var(--screen-bg);
   border-radius: 4px;
@@ -189,7 +330,12 @@ body {
   position: relative;
   overflow: hidden;
 }
-/* Scanlines */
+/* Scanlines - linhas de varredura */
+/* Pseudo-elemento ::before para efeito CRT */
+/* content: ''; */
+/* position: absolute; inset: 0; cobre toda tela */
+/* background: gradiente linear repetitivo para linhas */
+/* pointer-events: none; não interfere */
 .screen::before {
   content: '';
   position: absolute;
@@ -201,7 +347,12 @@ body {
   );
   pointer-events: none;
 }
-/* Screen glare */
+/* Screen glare - brilho na tela */
+/* Pseudo-elemento ::after */
+/* position: absolute; top: 0; left/right: 0; largura total */
+/* height: 40%; altura superior */
+/* background: gradiente linear para brilho */
+/* pointer-events: none; */
 .screen::after {
   content: '';
   position: absolute;
@@ -210,6 +361,14 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
   pointer-events: none;
 }
+/* Histórico na tela */
+/* font-family: fonte VT323 para retro */
+/* font-size: 16px; */
+/* color: verde escuro da tela */
+/* min-height: 20px; altura mínima */
+/* text-align: right; alinhamento à direita */
+/* letter-spacing: 1px; espaçamento */
+/* opacity: 0.8; semi-transparente */
 .screen-history {
   font-family: 'VT323', monospace;
   font-size: 16px;
@@ -219,6 +378,14 @@ body {
   letter-spacing: 1px;
   opacity: 0.8;
 }
+/* Expressão atual */
+/* font-family: VT323 */
+/* font-size: 15px; */
+/* color: verde escuro */
+/* text-align: right; */
+/* opacity: 0.7; */
+/* min-height: 18px; */
+/* word-break: break-all; quebra palavras longas */
 .screen-expression {
   font-family: 'VT323', monospace;
   font-size: 15px;
@@ -228,6 +395,15 @@ body {
   min-height: 18px;
   word-break: break-all;
 }
+/* Display principal */
+/* font-family: VT323 */
+/* font-size: 40px; grande */
+/* color: preto da tela */
+/* text-align: right; */
+/* line-height: 1; sem espaço extra */
+/* word-break: break-all; */
+/* text-shadow: sombra sutil */
+/* transition: transform 0.1s; para animação */
 .screen-display {
   font-family: 'VT323', monospace;
   font-size: 40px;
@@ -238,14 +414,27 @@ body {
   text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
   transition: transform 0.1s;
 }
+/* Classe para efeito de "pop" no display */
+/* animation: pop 0.15s ease-out; */
 .screen-display.pop {
   animation: pop 0.15s ease-out;
 }
+/* Animação de pop */
+/* 0%: scale 1 */
+/* 50%: scale 1.06 */
+/* 100%: scale 1 */
 @keyframes pop {
   0%   { transform: scale(1); }
   50%  { transform: scale(1.06); }
   100% { transform: scale(1); }
 }
+/* Dica Pokémon */
+/* font-size: 7px; pequeno */
+/* color: verde escuro */
+/* text-align: center; */
+/* opacity: 0.6; */
+/* letter-spacing: 1px; */
+/* font-family: Press Start 2P */
 .pokemon-hint {
   font-size: 7px;
   color: var(--screen-dk);
@@ -256,12 +445,29 @@ body {
 }
 
 /* ===== BUTTONS GRID ===== */
+/* Grade de botões */
+/* display: grid; layout em grade */
+/* grid-template-columns: repeat(4, 1fr); 4 colunas iguais */
+/* gap: 8px; espaço entre botões */
 .btn-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
 
+/* Estilo base para botões */
+/* font-family: Press Start 2P */
+/* font-size: 10px; */
+/* border: none; sem borda */
+/* border-radius: 6px; cantos arredondados */
+/* padding: 0; sem padding */
+/* height: 48px; altura fixa */
+/* cursor: pointer; cursor de mão */
+/* position: relative; para .btn-inner */
+/* outline: none; sem outline */
+/* transition: transform e filter para efeitos */
+/* user-select: none; não seleciona texto */
+/* -webkit-tap-highlight-color: transparent; remove highlight mobile */
 .btn {
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
@@ -277,7 +483,14 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 3D button effect */
+/* 3D button effect - efeito 3D nos botões */
+/* .btn-inner é o elemento interno que se move */
+/* position: absolute; inset: 0; cobre o botão */
+/* border-radius: 6px; */
+/* display: flex; centraliza conteúdo */
+/* align-items/justify-content: center; */
+/* transform: translateY(-3px); elevado */
+/* transition: transform 0.08s; */
 .btn-inner {
   position: absolute;
   inset: 0;
@@ -291,74 +504,116 @@ body {
   font-family: inherit;
   color: white;
 }
+/* Quando botão ativo ou pressionado, .btn-inner desce */
+/* transform: translateY(0px); */
 .btn:active .btn-inner,
 .btn.pressed .btn-inner {
   transform: translateY(0px);
 }
 
-/* Number buttons */
+/* Number buttons - botões numéricos */
+/* background: #111; fundo escuro */
+/* box-shadow: 0 4px 0 #000; sombra inferior para 3D */
 .btn-num {
   background: #111;
   box-shadow: 0 4px 0 #000;
 }
+/* .btn-inner para numéricos */
+/* background: gradiente de cinza escuro para claro */
+/* color: var(--cream); cor creme */
 .btn-num .btn-inner {
   background: linear-gradient(180deg, #3a3a3a, #1e1e1e);
   color: var(--cream);
 }
+/* Hover para numéricos */
+/* background: gradiente mais claro */
 .btn-num:hover .btn-inner {
   background: linear-gradient(180deg, #4a4a4a, #2e2e2e);
 }
 
-/* Operator buttons */
+/* Operator buttons - botões de operação */
+/* background: azul escuro */
+/* box-shadow: sombra azul */
 .btn-op {
   background: #1a2566;
   box-shadow: 0 4px 0 #0a0f3a;
 }
+/* .btn-inner para operadores */
+/* background: gradiente azul */
+/* color: amarelo */
+/* font-size: 13px; maior */
 .btn-op .btn-inner {
   background: linear-gradient(180deg, var(--blue-lt), var(--blue));
   color: var(--yellow);
   font-size: 13px;
 }
+/* Hover para operadores */
+/* background: gradiente mais claro */
 .btn-op:hover .btn-inner {
   background: linear-gradient(180deg, #8090ff, #4a5fdd);
 }
 
-/* Equal button */
+/* Equal button - botão de igual */
+/* background: vermelho escuro */
+/* box-shadow: sombra vermelha */
+/* grid-column: span 2; ocupa 2 colunas */
 .btn-eq {
   background: #800000;
   box-shadow: 0 4px 0 #500000;
   grid-column: span 2;
 }
+/* .btn-inner para igual */
+/* background: gradiente vermelho */
+/* color: amarelo */
+/* font-size: 12px; */
+/* letter-spacing: 1px; espaçamento */
 .btn-eq .btn-inner {
   background: linear-gradient(180deg, var(--red-light), var(--red));
   color: var(--yellow);
   font-size: 12px;
   letter-spacing: 1px;
 }
+/* Hover para igual */
+/* background: gradiente mais claro */
 .btn-eq:hover .btn-inner {
   background: linear-gradient(180deg, #ff5555, #dd1111);
 }
 
-/* Clear button */
+/* Clear button - botão limpar */
+/* background: amarelo escuro */
+/* box-shadow: sombra marrom */
 .btn-clear {
   background: #665500;
   box-shadow: 0 4px 0 #332200;
 }
+/* .btn-inner para limpar */
+/* background: gradiente amarelo */
+/* color: preto */
+/* font-size: 8px; pequeno */
 .btn-clear .btn-inner {
   background: linear-gradient(180deg, var(--yellow), var(--yellow-dk));
   color: #1a1a1a;
   font-size: 8px;
 }
+/* Hover para limpar */
+/* background: gradiente mais claro */
 .btn-clear:hover .btn-inner {
   background: linear-gradient(180deg, #ffe040, #d4a800);
 }
 
-/* Zero wide */
+/* Zero wide - botão zero largo */
+/* grid-column: span 2; ocupa 2 colunas */
 .btn-zero {
   grid-column: span 2;
 }
 
 /* ===== D-PAD AREA ===== */
+/* Área do D-Pad */
+/* display: flex; horizontal */
+/* justify-content: space-between; espaço entre D-Pad e botões A/B */
+/* align-items: center; alinha verticalmente */
+/* margin-bottom: 16px; */
+/* padding: 0 4px; */
 .dpad-section {
   display: flex;
   justify-content: space-between;
@@ -366,23 +621,49 @@ body {
   margin-bottom: 16px;
   padding: 0 4px;
 }
+/* Container do D-Pad */
+/* position: relative; para posicionar setas */
+/* width/height: 72px; tamanho */
 .dpad {
   position: relative;
   width: 72px; height: 72px;
 }
+/* Partes horizontais e verticais do D-Pad */
+/* position: absolute; */
+/* background: cinza escuro */
+/* border-radius: 4px; */
 .dpad-h, .dpad-v {
   position: absolute;
   background: #1a1a1a;
   border-radius: 4px;
 }
+/* Horizontal: largura total, altura 24px, centrado verticalmente */
 .dpad-h { width: 72px; height: 24px; top: 50%; transform: translateY(-50%); }
+/* Vertical: altura total, largura 24px, centrado horizontalmente */
 .dpad-v { height: 72px; width: 24px; left: 50%; transform: translateX(-50%); }
+/* Centro do D-Pad */
+/* position: absolute; inset: 24px; no centro */
+/* background: cinza */
+/* border-radius: 2px; */
+/* z-index: 1; acima de h/v */
 .dpad-center {
   position: absolute; inset: 24px;
   background: #222;
   border-radius: 2px;
   z-index: 1;
 }
+/* Setas do D-Pad */
+/* position: absolute; */
+/* width/height: 24px; */
+/* background: cinza escuro */
+/* display: flex; centraliza texto */
+/* align-items/justify-content: center; */
+/* color: cinza claro */
+/* font-size: 10px; */
+/* cursor: pointer; */
+/* transition: background e color */
+/* z-index: 2; acima do centro */
+/* border-radius: 2px; */
 .dpad-arrow {
   position: absolute;
   width: 24px; height: 24px;
@@ -394,17 +675,35 @@ body {
   z-index: 2;
   border-radius: 2px;
 }
+/* Hover para setas */
+/* background: cinza médio */
+/* color: cinza claro */
 .dpad-arrow:hover { background: #3a3a3a; color: #888; }
+/* Posições das setas */
 .dpad-up    { top: 0;    left: 24px; }
 .dpad-down  { bottom: 0; left: 24px; }
 .dpad-left  { left: 0;   top: 24px; }
 .dpad-right { right: 0;  top: 24px; }
 
+/* Botões A e B */
+/* display: grid; 2 colunas */
+/* gap: 8px; espaço */
 .ab-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
+/* Estilo base para botões A/B */
+/* width/height: 36px; */
+/* border-radius: 50%; circulares */
+/* border: none; */
+/* cursor: pointer; */
+/* font-family: Press Start 2P */
+/* font-size: 9px; */
+/* font-weight: bold; */
+/* transition: transform e filter */
+/* box-shadow: sombra */
+/* color: white; */
 .btn-ab {
   width: 36px; height: 36px;
   border-radius: 50%;
@@ -417,15 +716,35 @@ body {
   box-shadow: 0 4px 0 rgba(0,0,0,0.4);
   color: white;
 }
+/* Ativo: translateY(2px) e sombra reduzida */
 .btn-ab:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.4); }
+/* Botão A: gradiente vermelho */
 .btn-a { background: radial-gradient(circle at 35% 35%, #ff6060, var(--red)); }
+/* Botão B: gradiente azul */
 .btn-b { background: radial-gradient(circle at 35% 35%, #6080ff, var(--blue)); }
 
 /* ===== START / SELECT ===== */
+/* Botões Start e Select */
+/* display: flex; horizontal */
+/* gap: 12px; espaço */
+/* justify-content: center; centralizados */
+/* margin-top/bottom: 8px/4px; */
 .start-select {
   display: flex; gap: 12px; justify-content: center;
   margin-top: 8px; margin-bottom: 4px;
 }
+/* Estilo para botões SS */
+/* background: vermelho escuro */
+/* border: none; */
+/* border-radius: 10px; */
+/* padding: 5px 14px; */
+/* font-family: Press Start 2P */
+/* font-size: 5px; pequeno */
+/* color: branco semi-transparente */
+/* cursor: pointer; */
+/* letter-spacing: 1px; */
+/* box-shadow: múltiplas sombras para 3D */
+/* transition: transform 0.1s; */
 .btn-ss {
   background: #8B0000;
   border: none;
@@ -439,9 +758,28 @@ body {
   box-shadow: 0 3px 0 #500000, inset 0 1px 0 rgba(255,255,255,0.1);
   transition: transform 0.1s;
 }
+/* Ativo: translateY(2px) e sombra reduzida */
 .btn-ss:active { transform: translateY(2px); box-shadow: 0 1px 0 #500000; }
 
 /* ===== BATTLE MESSAGE ===== */
+/* Mensagem de batalha pop-up */
+/* position: fixed; no topo, centralizado */
+/* background: verde da tela */
+/* border: 4px sólido preto da tela */
+/* border-radius: 4px; */
+/* padding: 12px 20px; */
+/* font-family: Press Start 2P */
+/* font-size: 9px; */
+/* color: preto da tela */
+/* text-align: center; */
+/* box-shadow: sombra deslocada */
+/* z-index: 100; acima de tudo */
+/* opacity: 0; invisível por padrão */
+/* pointer-events: none; não interfere */
+/* transition: opacity 0.2s; */
+/* max-width: 280px; */
+/* line-height: 1.8; */
+/* white-space: pre-line; preserva quebras de linha */
 .battle-msg {
   position: fixed;
   top: 20px; left: 50%; transform: translateX(-50%);
@@ -462,17 +800,29 @@ body {
   line-height: 1.8;
   white-space: pre-line;
 }
+/* Classe para mostrar a mensagem */
+/* opacity: 1; visível */
 .battle-msg.show { opacity: 1; }
 
 /* ===== ERROR SHAKE ===== */
+/* Animação de tremor para erros */
+/* @keyframes shake: move horizontalmente */
+/* 0%,100%: translateX(0) */
+/* 25%: translateX(-6px) */
+/* 75%: translateX(6px) */
 @keyframes shake {
   0%,100% { transform: translateX(0); }
   25%     { transform: translateX(-6px); }
   75%     { transform: translateX(6px); }
 }
+/* Classe shake: aplica a animação */
+/* animation: shake 0.3s ease-in-out; */
 .shake { animation: shake 0.3s ease-in-out; }
 
 /* ===== RESPONSIVE ===== */
+/* Media query para telas menores que 380px */
+/* .device: width: 300px; menor */
+/* .btn: height: 42px; menor, font-size: 9px; */
 @media (max-width: 380px) {
   .device { width: 300px; }
   .btn { height: 42px; font-size: 9px; }

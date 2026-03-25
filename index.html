@@ -1,93 +1,137 @@
 <!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5, necessária para o navegador interpretar corretamente -->
 <html lang="pt-BR">
+<!-- Define o idioma da página como português brasileiro para acessibilidade e SEO -->
 <head>
+  <!-- Cabeçalho do documento, contém metadados -->
   <meta charset="UTF-8" />
+  <!-- Define a codificação de caracteres como UTF-8 para suportar caracteres especiais -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Configura a viewport para responsividade em dispositivos móveis -->
   <title>Pokécalc — Calculadora Pokémon</title>
+  <!-- Título da página exibido na aba do navegador -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet" />
+  <!-- Carrega fontes do Google Fonts para estilização retrô -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Vincula o arquivo CSS externo para estilos -->
 </head>
 <body>
+<!-- Corpo do documento HTML, onde o conteúdo visível é definido -->
 
   <!-- Floating background pokebolas -->
+  <!-- Elemento decorativo para bolas de fundo flutuantes -->
   <div class="bg-balls" id="bgBalls"></div>
 
   <!-- Mensagem de batalha popup -->
+  <!-- Elemento para exibir mensagens pop-up de batalha -->
   <div class="battle-msg" id="battleMsg"></div>
 
   <!-- Device -->
+  <!-- Conteúdo principal da calculadora, usando tag semântica main -->
   <main class="device">
 
     <!-- Camera + LED indicadores -->
+    <!-- Cabeçalho com câmera e LEDs indicadores -->
     <header class="camera-row">
+      <!-- Representa a câmera do dispositivo -->
       <div class="camera"></div>
+      <!-- LEDs indicadores: vermelho, amarelo, verde -->
       <div class="led red"></div>
       <div class="led yellow"></div>
       <div class="led green"></div>
     </header>
 
     <!-- Barra de Titulo -->
+    <!-- Cabeçalho com o título do dispositivo -->
     <header class="top-bar">
+      <!-- Ícone de Pokébola -->
       <div class="pokeball-icon"></div>
+      <!-- Título do dispositivo -->
       <div class="device-title">
         POKÉCALC
+        <!-- Texto decorativo com span para estilização -->
         <span>★ KANTO EDITION ★</span>
       </div>
     </header>
 
     <!-- Screen -->
+    <!-- Seção da tela da calculadora -->
     <section class="screen-wrap">
+      <!-- Container da tela -->
       <div class="screen">
+        <!-- Área para histórico de cálculos -->
         <div class="screen-history"    id="history"></div>
+        <!-- Área para expressão atual -->
         <div class="screen-expression" id="expression"></div>
+        <!-- Display principal mostrando o resultado -->
         <div class="screen-display"    id="display">0</div>
+        <!-- Dica para o usuário -->
         <div class="pokemon-hint"      id="hint">USE ▶ CALC ◀ SYSTEM</div>
       </div>
     </section>
 
     <!-- D-Pad + A/B buttons -->
+    <!-- Seção dos controles D-Pad e botões A/B -->
     <section class="dpad-section">
+      <!-- Container do D-Pad -->
       <div class="dpad">
+        <!-- Partes horizontais do D-Pad -->
         <div class="dpad-h"></div>
+        <!-- Partes verticais do D-Pad -->
         <div class="dpad-v"></div>
+        <!-- Centro do D-Pad -->
         <div class="dpad-center"></div>
+        <!-- Setas direcionais do D-Pad -->
         <div class="dpad-arrow dpad-up">▲</div>
         <div class="dpad-arrow dpad-down">▼</div>
         <div class="dpad-arrow dpad-left">◄</div>
         <div class="dpad-arrow dpad-right">►</div>
       </div>
+      <!-- Botões A e B -->
       <div class="ab-buttons">
         <div></div>
+        <!-- Botão A com ação JavaScript -->
         <button class="btn-ab btn-a" onclick="calc.action('A')">A</button>
+        <!-- Botão B com ação JavaScript -->
         <button class="btn-ab btn-b" onclick="calc.action('B')">B</button>
         <div></div>
       </div>
     </section>
 
     <!-- Start / Select -->
+    <!-- Seção dos botões Start e Select -->
     <section class="start-select">
+      <!-- Botão Select com ação JavaScript -->
       <button class="btn-ss" onclick="calc.action('SELECT')">SELECT</button>
+      <!-- Botão Start com ação JavaScript -->
       <button class="btn-ss" onclick="calc.action('START')">START</button>
     </section>
 
     <!-- Calculator butoes -->
+    <!-- Seção da grade de botões da calculadora -->
     <section class="btn-grid">
 
       <!-- Row 1: AC ± % ÷ -->
+      <!-- Botões da primeira linha: limpar, mudança de sinal, porcentagem, divisão -->
       <button class="btn btn-clear" onclick="calc.input('AC')">
+        <!-- Botão AC (All Clear) com span interno para estilização -->
         <span class="btn-inner">AC</span>
       </button>
       <button class="btn btn-op" onclick="calc.input('+/-')">
+        <!-- Botão de mudança de sinal -->
         <span class="btn-inner">±</span>
       </button>
       <button class="btn btn-op" onclick="calc.input('%')">
+        <!-- Botão de porcentagem -->
         <span class="btn-inner">%</span>
       </button>
       <button class="btn btn-op" onclick="calc.input('÷')">
+        <!-- Botão de divisão -->
         <span class="btn-inner">÷</span>
       </button>
 
       <!-- Row 2: 7 8 9 × -->
+      <!-- Botões numéricos 7,8,9 e multiplicação -->
       <button class="btn btn-num" onclick="calc.input('7')">
         <span class="btn-inner">7</span>
       </button>
@@ -98,10 +142,12 @@
         <span class="btn-inner">9</span>
       </button>
       <button class="btn btn-op" onclick="calc.input('×')">
+        <!-- Botão de multiplicação -->
         <span class="btn-inner">×</span>
       </button>
 
       <!-- Row 3: 4 5 6 − -->
+      <!-- Botões numéricos 4,5,6 e subtração -->
       <button class="btn btn-num" onclick="calc.input('4')">
         <span class="btn-inner">4</span>
       </button>
@@ -112,10 +158,12 @@
         <span class="btn-inner">6</span>
       </button>
       <button class="btn btn-op" onclick="calc.input('−')">
+        <!-- Botão de subtração -->
         <span class="btn-inner">−</span>
       </button>
 
       <!-- Row 4: 1 2 3 + -->
+      <!-- Botões numéricos 1,2,3 e adição -->
       <button class="btn btn-num" onclick="calc.input('1')">
         <span class="btn-inner">1</span>
       </button>
@@ -126,23 +174,30 @@
         <span class="btn-inner">3</span>
       </button>
       <button class="btn btn-op" onclick="calc.input('+')">
+        <!-- Botão de adição -->
         <span class="btn-inner">+</span>
       </button>
 
       <!-- Row 5: 0 . = -->
+      <!-- Botões: zero, ponto decimal, igual -->
       <button class="btn btn-num btn-zero" onclick="calc.input('0')">
+        <!-- Botão zero com classe extra para largura -->
         <span class="btn-inner">0</span>
       </button>
       <button class="btn btn-num" onclick="calc.input('.')">
+        <!-- Botão ponto decimal -->
         <span class="btn-inner">.</span>
       </button>
       <button class="btn btn-eq" onclick="calc.input('=')">
+        <!-- Botão de igualdade -->
         <span class="btn-inner">= OK!</span>
       </button>
 
     </section>
   </main><!-- /.device -->
 
+  <!-- Script JavaScript externo -->
+  <!-- Carrega o arquivo script.js para funcionalidades da calculadora -->
   <script src="script.js"></script>
 </body>
 </html>
