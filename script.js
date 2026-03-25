@@ -162,6 +162,56 @@ const calc = (() => {
       return;
     }
 
+    // Operator keys
+    if (['+', '−', '×', '÷'].includes(key)) {
+      if (operator && !shouldReset) {
+        const result = compute(prev, operator, current);
+        if (result === null) {
+          shake();
+          showMsg(getRandom(messages.zero));
+          return;
+        }
+        prev = String(fmt(result));
+        updateDisplay(prev);
+      } else {
+        prev = current;
+      }
+      operator = key;
+      expression = prev + ' ' + key;
+      exprEl.textContent = expression;
+      shouldReset = true;
+      return;
+    }
+
+    // Equals
+    if (key === '=') {
+      if (!operator) return;
+      const result = compute(prev, operator, current);
+      if (result === null) {
+        shake();
+        showMsg(getRandom(messages.zero));
+        return;
+      }
+      const res = fmt(result);
+      history = prev + ' ' + operator + ' ' + current + ' =';
+      histEl.textContent = history;
+      exprEl.textContent = '';
+      updateDisplay(res);
+
+      // Easter egg for special numbers
+      const num = parseFloat(res);
+      if (specialNumbers.includes(num)) {
+        showMsg(getRandom(messages.special));
+      } else {
+        const msg = getRandom(messages.result).replace('{val}', res);
+        showMsg(msg);
+      }
+
+      current = res; prev = ''; operator = '';
+      shouldReset = true;
+      return;
+    }
+
     
 
 
