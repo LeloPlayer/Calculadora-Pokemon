@@ -212,6 +212,20 @@ const calc = (() => {
       return;
     }
 
+    // Decimal point
+    if (key === '.') {
+      if (shouldReset) {
+        current = '0.';
+        shouldReset = false;
+        updateDisplay(current);
+        return;
+      }
+      if (!current.includes('.')) {
+        current += '.';
+        updateDisplay(current);
+      }
+      return;
+    }
     
 
 
