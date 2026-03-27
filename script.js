@@ -227,6 +227,18 @@ const calc = (() => {
       return;
     }
     
+     // Digit input
+    if (shouldReset) {
+      current = key;
+      shouldReset = false;
+    } else {
+      current = current === '0' ? key : current + key;
+    }
+    if (current.length > 10) current = current.slice(0, 10);
+    updateDisplay(current);
+  }
+
+  
 
 
 
