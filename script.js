@@ -270,6 +270,19 @@ const calc = (() => {
    return { input, action };
 })();
 
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  createBackgroundBalls();
+  initHints();
+
+   // Welcome message on load
+  const welcomeMessages = [
+    "PROF. OAK: Bem-vindo\nao POKÉCALC!\nUse START p/ dica.",
+    "PIKACHU está\npronto p/ calcular!\n★ Gotta Calculate ★",
+  ];
+  setTimeout(() => showMsg(getRandom(welcomeMessages)), 800);
+});
+
 
 
 
