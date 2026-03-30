@@ -23,35 +23,35 @@ function createBackgroundBalls() {
 // ===== POKÉMON BATTLE MESSAGES =====
 const messages = {
   start: [
-    "PROF. OAK: Bem-vindo\nao mundo das\ncalculadoras!",
-    "PIKACHU usou\nCALCULATION!\nÉ super eficaz!",
-    "POKÉCALC v1.0\npronto para\na batalha!",
+    "PROF. OAK: Bem-vindo ao mundo das calculadoras!",
+    "PIKACHU usou CALCULATION! É super eficaz!",
+    "POKÉCALC v1.0 pronto para a batalha!",
   ],
   result: [
-    "CRÍTICO!\nResultado obtido!",
+    "CRÍTICO! Resultado obtido!",
     "É SUPER EFICAZ!",
-    "POKÉMON inimigo\nfoi derrotado!",
-    "PIKACHU ganhou\n{val} EXP!",
-    "A CALCULADORA\nusou MATH!\n{val}",
+    "POKÉMON inimigo foi derrotado!",
+    "PIKACHU ganhou {val} EXP!",
+    "A CALCULADORA usou MATH! {val}",
   ],
   error: [
-    "MISSINGNO:\nerro detectado!",
-    "Não é muito\neficaz...",
-    "TEAM ROCKET\nsabotou o cálculo!",
+    "MISSINGNO: erro detectado!",
+    "Não é muito eficaz...",
+    "TEAM ROCKET sabotou o cálculo!",
   ],
   clear: [
     "Memória apagada!",
-    "PIKACHU voltou\nà Pokébola!",
+    "PIKACHU voltou à Pokébola!",
   ],
   zero: [
-    "SNORLAX bloqueia\no caminho!",
-    "Divisão por zero?\nNem o MEWTWO\nconsegue!",
+    "SNORLAX bloqueia o caminho!",
+    "Divisão por zero? Nem o MEWTWO consegue!",
   ],
   special: [
-    "42 é a resposta\npara tudo!",
-    "1337 - Leet\nTrainer mode!",
-    "404 - Pokémon\nnot found!",
-    "Você encontrou\num Pokémon raro!",
+    "42 é a resposta para tudo!",
+    "1337 - Leet Trainer mode!",
+    "404 - Pokémon not found!",
+    "Você encontrou um Pokémon raro!",
   ],
 };
 
@@ -242,7 +242,7 @@ const calc = (() => {
   function action(btn) {
     if (btn === 'A')      input('=');
     if (btn === 'B')      input('AC');
-    if (btn === 'SELECT') showMsg("SELECT: Modo turbo\nainda em\ndesenvolvimento!");
+    if (btn === 'SELECT') showMsg("SELECT: Modo turbo ainda em desenvolvimento!");
     if (btn === 'START')  showMsg(getRandom(messages.start));
   }
 
