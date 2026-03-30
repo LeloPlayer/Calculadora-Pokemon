@@ -277,11 +277,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
    // Welcome message on load
   const welcomeMessages = [
-    "PROF. OAK: Bem-vindo\nao POKÉCALC!\nUse START p/ dica.",
-    "PIKACHU está\npronto p/ calcular!\n★ Gotta Calculate ★",
+    "PROF. OAK: Bem-vindo a POKÉCALC! Use START para a dica.",
+    "PIKACHU está pronto para calcular! ★ Gotta Calculate ★",
   ];
   setTimeout(() => showMsg(getRandom(welcomeMessages)), 800);
 });
+
+
 
 
 
