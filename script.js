@@ -245,6 +245,28 @@ const calc = (() => {
     if (btn === 'SELECT') showMsg("SELECT: Modo turbo\nainda em\ndesenvolvimento!");
     if (btn === 'START')  showMsg(getRandom(messages.start));
   }
+
+  // --- Keyboard support ---
+  document.addEventListener('keydown', (e) => {
+    const keyMap = {
+      'Enter':     '=',
+      'Backspace': 'AC',
+      'Escape':    'AC',
+      '+': '+',
+      '-': '−',
+      '*': '×',
+      '/': '÷',
+      '.': '.',
+      ',': '.',
+      '0': '0', '1': '1', '2': '2', '3': '3', '4': '4',
+      '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
+    };
+    if (keyMap[e.key]) {
+      e.preventDefault();
+      input(keyMap[e.key]);
+    }
+  });
+
   
 
 
