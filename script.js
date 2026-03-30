@@ -267,7 +267,10 @@ const calc = (() => {
     }
   });
 
-  
+   return { input, action };
+})();
+
+
 
 
 
