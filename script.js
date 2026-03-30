@@ -200,6 +200,20 @@ const calc = (() => {
       return;
     }
 
+    // DEL — delete last digit
+    if (key === 'DEL') {
+      // Se current tem mais de um dígito, remove o último
+      if (current.length > 1) {
+        current = current.slice(0, -1);
+      } else {
+        // Se é um único dígito ou '0.', volta para '0'
+        current = '0';
+      }
+      // Atualiza o display
+      updateDisplay(current);
+      return;
+    }
+
     // Toggle sign
     if (key === '+/-') {
       // Se não for zero, inverte o sinal
@@ -333,7 +347,7 @@ const calc = (() => {
     // Mapeamento de teclas do teclado para ações da calculadora
     const keyMap = {
       'Enter':     '=',
-      'Backspace': 'AC',
+      'Backspace': 'DEL',
       'Escape':    'AC',
       '+': '+',
       '-': '−',
