@@ -238,6 +238,13 @@ const calc = (() => {
     updateDisplay(current);
   }
 
+   // --- Action buttons (A, B, START, SELECT) ---
+  function action(btn) {
+    if (btn === 'A')      input('=');
+    if (btn === 'B')      input('AC');
+    if (btn === 'SELECT') showMsg("SELECT: Modo turbo\nainda em\ndesenvolvimento!");
+    if (btn === 'START')  showMsg(getRandom(messages.start));
+  }
   
 
 
